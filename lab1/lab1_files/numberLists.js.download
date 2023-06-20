@@ -1,0 +1,10 @@
+$(document).ready(() => {
+
+    let lists = $("ol"),
+        i = 1;
+
+    $(lists).each( function() {
+        $(this).attr('start', i++);
+    });
+    
+});

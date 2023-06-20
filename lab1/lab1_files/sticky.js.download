@@ -1,0 +1,12 @@
+/*
+    Sticky navbar
+*/
+var TOP = 100;
+$(window).on('scroll', function () {
+    if ($(window).scrollTop() > TOP) {
+        $('nav').addClass('sticky');
+    }
+    else {
+        $('nav').removeClass('sticky');
+    }
+});

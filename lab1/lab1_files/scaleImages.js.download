@@ -1,0 +1,98 @@
+/* scaleImages.js
+ *  Author:         Jack
+ *  Date:           2021-07-12
+ *  Last revised:   2022-01-04
+ *  Description:    This script provides a generic method of scaling
+ *                  images up/down on a page. 
+ * 
+ *                  To tie the image to the script, include 
+ *                  data-imgToggle="false" in the image element
+ * 
+ *                  When the image is clicked on, the event will fire,
+ *                  extract the image's width and caption, and animate
+ *                  the image resize, updating the caption
+ *  Update (2022-01-04):
+ *                  The script will now detect already zoomed images when
+ *                  the user clicks a new image and will zoom them back out.
+ *                  If the user clicks an image twice, it will zoom in and 
+ *                  back out
+ */
+
+/* resetAll()
+ *  When an image is clicked, check all images to see if their 
+ *  data-imgToggle attribute is true. If so, scale that one back
+ *  down to its original size before enlarging the clicked image
+ */
+function resetAll() {
+    let allImages = Array.from($("img[data-imgToggle]"));
+    for (i in allImages) {
+        if ($(allImages[i]).attr("data-imgToggle") == "true") {
+            let reg = /[0-9]+/,     // regular expression to match width's value
+                
+                width = $(allImages[i])
+                    .attr('style')                  // get the width (string)
+                    .split(" ")[1]                  // get the width value
+                    .match(reg),                    // regex the numbers
+
+                caption = $(allImages[i])   // get the current caption
+                    .next()                 // the figcaption is the next element (after img)
+                    .html();                // grab its HTML
+
+            width = parseInt(width);        // convert from string to int
+
+            $(allImages[i]).css('cursor', 'zoom-in');  // change the cursor
+            $(allImages[i]).animate ({
+                width: width / 1.5             // scale the image back down
+            }, 500);
+            $(allImages[i]).attr('data-imgToggle', "false");   // set data-imgToggle to false
+            $(allImages[i]).next().html(caption.replace("zoom out", "zoom in"));   // update the caption
+        }
+    }
+}
+
+/* Image 'click' event listener
+ *  Fires when an image is clicked. Checks for one of two conditions:
+ *    1. The image the user clicked is not toggled (data-imgToggle="false")
+ *    2. The image the user clicked is toggled (data-imgToggle="true")
+ *
+ *  If (1), check for another toggled image and 'un-toggle' it, zooming its
+ *  display back out. This is handled by the resetAll() function above
+ *
+ *  If (2), simply zoom the image back out
+ */
+$("img[data-imgToggle]").on('click', function() {
+    let image = $(this),        // the clicked image
+        // toggled: convert the string value to boolean by comparing its 
+        // string value to "true"
+        toggled = ($(this).attr('data-imgToggle') == "true"), 
+        reg = /[0-9]+/,         // regular expression to match width's value
+        width = $(this)
+            .attr('style')      // get the width (string), e.g., "500px"
+            .split(" ")[1]      // get the width value, e.g., "500"
+            .match(reg),        // regex the numbers
+
+        caption = $(this)       // get the current caption
+            .next()             // it's the 'next' element in the figure
+            .html();            // grab its HTML
+
+    width = parseInt(width);    // convert to integer value
+
+    if(!toggled) {
+        // see above; if the image the user clicks isn't currently toggled, reset all
+        // if it is, just zoom back out (the else block)
+        resetAll(); 
+        $(image).css('cursor', 'zoom-out'); // change the cursor
+        $(image).animate ({
+            width: width * 1.5             // scale the image up 150%
+        }, 500);
+        $(image).attr('data-imgToggle', "true");    // set data-imgToggle to true
+        $(image).next().html(caption.replace("zoom in", "zoom out"));   // update the caption
+    } else {  // if the user 're-clicked' an already zoomed image
+        $(image).css('cursor', 'zoom-in');  // change the cursor
+        $(image).animate ({
+            width: width / 1.5             // scale the image back down 150%
+        }, 500);
+        $(image).attr('data-imgToggle', "false");   // set data-imgToggle to false
+        $(image).next().html(caption.replace("zoom out", "zoom in"));   // update the caption
+    }
+});
