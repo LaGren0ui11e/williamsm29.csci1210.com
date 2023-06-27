@@ -1,0 +1,11 @@
+/* lab5.css
+  * Author:       Matt Williams
+  * Date:         06-26-2023
+  * Assignment:   Lab 5
+  * Purpose:      Beginning CSS
+*/
+body {
+  background-color: #2e6e12;
+  color: #fffc7c;
+  font-family: Arial, Helvetica, sans-serif;
+}
