@@ -5,13 +5,13 @@
   * Purpose:      Beginning CSS
 */
 body {
-  background-color: #2e6e12;
-  color: #fffc7c;
+  background-color: #58595B;
+  color: #FF8200;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 div {
-  background-color: #164900;
+  background-color: #58595B;
   width: 800px;
   margin: auto;
   padding: 10px 15px;
