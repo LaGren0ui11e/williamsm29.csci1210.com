@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HW 3</title>
+    <meta name="author" content="Matt Williams">
+    <meta name="description" content="CSCI 1210 Homework 3">
+    <meta name="keywords" content="CSCI 1210, images, image optimization">
+    <meta name="date" content="07-06-2023">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+
+    <!--  
+           Author:			    Matt Williams
+           Date:			      07/06/2023
+           Assignment:		  Homework 3
+           Purpose:		      Practice with optimizing images for the web
+      -->
+
+<!-- We haven't talked about a lot of this, yet, so don't worry about it.
+    I tested it all and it works
+-->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            box-sizing: border-box;
+            background: rgba(0, 0, 125, .3);
+        }
+        header {
+            height: 100px;
+            background: rgba(0, 0, 125, .8);
+            width: 100%;
+            margin: auto;
+        }
+        header>h1 {
+            font-size: 2.4em;
+            font-style: italic;
+            position: relative;
+            top: 50%;
+            transform: translate(0%, -50%);
+            width: 800px;
+            color: white;
+            margin: auto;
+            text-align: center;
+        }
+        p {
+            font-size: 1.3em;
+            width: 800px;
+            margin: 20px auto;
+        }
+        table {
+            width: 800px;
+            margin: 40px auto;
+            border: 1px solid blue;
+            border-collapse: collapse;
+        }
+        img {
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <header>
+            <h1>Homework 3: Photo Optimization</h1>
+        </header>
+
+        <table>
+            <tr>
+                <td><img src='images/001.jpg' alt='Smiling woman covered in birds'></td>
+                <td><img src='images/002.jpg' alt='The cutest cat in the world sleeping on her human'></td>
+            </tr>
+            <tr>
+                <td><img src='images/003.jpg' alt='Adorable puppy passed out after play'></td>
+                <td><img src='images/004.jpg' alt='Cat lying down with a dog poking his head out from under the covers'></td>
+            </tr>
+        </table>
+
+        <p>
+            These are some random landscape pictures from my phone. The first is my wife being mobbed by birds at a zoo and loving every moment. The second picture is my cat Freya sleeping on me while I was working. The third is our friend's puppy who passed out after being a maniac for a few hours. The last is Freya and my dog Smokey cuddling on our couch. 
+        </p>
+    </div>
+    <script src="/js/w3c.js"></script>
+</body>
+</html>
