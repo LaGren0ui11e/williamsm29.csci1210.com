@@ -1,0 +1,117 @@
+/*
+	Author:			  Matt Williams
+	Assignment:		Lab 9
+	Date:			    3/29/2016
+	Purpose:		  Choosing a color scheme/Using float to position images/Learning a little about Linux
+*/
+
+body {
+	font-family: 'Antic', sans-serif;
+	font-size: 1.2em;
+	background-color: darkgray;
+	color: black;
+}
+
+header, nav, article, footer {
+	width: 900px;
+	margin: auto;
+}
+
+header {
+	height: 190px;
+	background-color: rgba(7,105,105,1);
+	color: rgba(212, 28, 28,1) ;
+	padding: 25px 0;
+}
+
+nav {
+	height: 2em;
+	padding: 0;
+	border-bottom: 1px solid rgba(212, 28, 28,1);
+	margin-top: 0;
+}
+
+nav a {
+	display: block;
+	width: 75px;
+	text-align: center;
+	margin-right: 5px;
+	float: left;
+	padding: 3px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+nav a:link, nav a:visited {
+	color: rgba(  0, 86,  0,1);
+}
+
+nav a:hover, nav a:active {
+	box-sizing: border-box;
+	color: rgba(7,105,105,1);
+	border: 1px solid rgba(0, 87, 87,1);
+}
+
+a {
+	text-decoration: none;
+	color: rgb(25, 25, 203);
+}
+
+img.floatLeft {
+	display: block;
+	float: left;
+	margin: 0 15px;
+	height: 150px;
+}
+
+img.floatRight {
+	display: block;
+	float: right;
+	margin: 0 15px;
+	height: 150px;
+}
+
+.clearBoth {
+	clear: both;
+}
+
+footer {
+	clear: both;
+	line-height: 2em;
+	margin: 0 auto;
+	background-color: rgba(0, 86,  0,1);
+	color: rgb(255, 255, 255);
+}
+
+h1, h2 {
+	text-align: center;
+	width: 75%;
+	margin: auto;
+	border-bottom: 2px solid rgba(7,105,105,1);
+	color: rgb(0,0,0);
+}
+
+header h1, header h2 {
+	border-width: 0;
+}
+
+article {
+	box-sizing: border-box;
+	border: 1px solid rgba(0, 86,  0,1);
+	color: rgb(0,0,0);
+	padding: 15px;
+}
+
+
+/* Enter your rules above this one */
+.cite {
+	display: block;
+	width: 400px;
+	float: right;
+	font-size: .8em;
+	font-style: italic;
+	margin: 10px 100px 20px 0;
+}
+
+
+
